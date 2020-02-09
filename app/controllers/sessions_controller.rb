@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to (session[:intended_url] || user),
+      redirect_to session[:intended_url] || user,
                    notice: "Welcome back, #{user.name}!"
       session[:intended_url] = nil
     else

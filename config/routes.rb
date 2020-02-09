@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resources :genres
-  resources :favorites
   root "movies#index"
 
   resources :movies do
@@ -13,7 +11,5 @@ Rails.application.routes.draw do
 
   resources :users
   get "signup" => "users#new"
-
-  resources :favorites
-
 end
+
